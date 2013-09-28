@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" x:Class="EPAtoTV.MainWindow"
-        Title="EPA2toTV" Height="700" Width="1000" WindowState="Maximized" WindowStartupLocation="CenterScreen" Icon="Visual/Resources/icon/Windows8MetroUI/Excel-Metro.ico" Background="#FFD6D6D6">
+        Title="EPA2toTV" Height="700" Width="1000" WindowState="Maximized" WindowStartupLocation="CenterScreen" Icon="Visual/Resources/icon/Others/Preview.ico" Background="#FFD6D6D6">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="267*"/>
@@ -11,12 +11,12 @@
         <ToolBar x:Name="tbrMenu" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="57" Background="#FF494B4D">
             <Button x:Name="btnOpenFile" Content="" ToolTip="Open File" VerticalAlignment="Stretch" Width="60                     " Click="btnOpenFile_Click" VerticalContentAlignment="Center">
                 <Button.Background>
-                    <ImageBrush ImageSource="Visual/Resources/png/Weby/Folder.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="Visual/Resources/png/Others/Folder.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
             <Button x:Name="btnShowFile" Content="" ToolTip="Show File" VerticalAlignment="Stretch" Width="60                     " Click="btnShowFile_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="Visual/Resources/png/Weby/Document.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="Visual/Resources/png/Others/Document.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
             <Button x:Name="btnReadFile" Content="" ToolTip="Show File" VerticalAlignment="Stretch" Width="60                     " Click="btnReadFile_Click">
