@@ -1,0 +1,14 @@
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\bin\Debug\DiogoSousa.exe.config
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\bin\Debug\DiogoSousa.exe
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\bin\Debug\DiogoSousa.pdb
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\obj\Debug\DiogoSousa.csprojResolveAssemblyReference.cache
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\obj\Debug\MainWindow.baml
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\obj\Debug\MainWindow.g.cs
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\obj\Debug\App.g.cs
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\obj\Debug\DiogoSousa_MarkupCompile.cache
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\obj\Debug\DiogoSousa.g.resources
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\obj\Debug\DiogoSousa.Properties.Resources.resources
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\obj\Debug\DiogoSousa.csproj.GenerateResource.Cache
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\obj\Debug\DiogoSousa.exe
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\obj\Debug\DiogoSousa.pdb
+C:\Users\Miguel\Documents\Projetos\DiogoSousa\Code\DiogoSousa\DiogoSousa\bin\Debug\EPAtoTV.exe.config

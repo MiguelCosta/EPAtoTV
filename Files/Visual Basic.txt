@@ -1,0 +1,32 @@
+Visual Basic no excel
+
+O objectivo é transformar as tabelas do lado esquerdo (estão em formato texto e unidas) numa tabela igual á do lado direito para ser gravada tanto em formato .xlsx como em formato .xlm! A questão é que nem todas as redes têm o mesmo tamanho (há redes com maiores e menores tamanhos e finalidade era que o "programa" funcionasse para qualquer tamanho da rede). 
+
+Para a tabela FINAL as colunas (NET_SUBRAA) (NET_NODE_BEGIN) (NET_NODE_END) (NET_LENGTH) (NET_DINT) devem ser preenchidas pela informação da tabela "Link-Node Table", que correspondem respectivamente as colunas (Link ID) (Start Node) (End Node) (Length m) (Diameter mm). Nota: Links ID que se iniciam por VS não são para considerar.  
+
+A Coluna (NET_Q) da tabela FINAL é para ser copida  da tabela "Link Results" na coluna (Flow LPS) (se por acaso algum valor for negativo torna-lo sempre positivo).
+
+Em baixo estão alguns passos que te vão ajudar e complementar mais a informação:
+
+1- Passar de texto para colunas
+
+2- Substituir . por ,
+
+3- Todos os tramos que iniciam por vs não são para considerar
+
+3- Retirar os v e as '
+
+4- Abrir uma caixa de texto para identificar as letras que identificam os tramos (sub-RAA primitivas) e nós
+
+5- Ordenar os tramos de forma crescente e consequentemente os outros parametros associados (nota: o nó inicial de cada tramo tem de ser maior que o nó final, caso não aconteça trocar a ordem)
+
+7- Abrir caixa de texto para peguntar quantos Sub_RAA de Referência (Reservatórios) tem o sistema, e a que nós está ou estão ligados. Nota: ver ultima linha da tabela final de exemplo. O reservatório é identificado como o tramo 0 os nós inicial e final são os que o ultilizador identifica.  
+
+6- O diametro externo (NET_DCOM) é igual ao diametro interno (NET_DINT) + 10
+
+7- abrir um caixa de texto para perguntar se a classe de pressão (NET_P) é igual em todos os tramos, se sim perguntar qual, se não deixar em branco!
+
+8- Igual para a rugosidades (NET_K)
+
+9- Caixa de texto a perguntar a viscosidade da água (NET_D) (valor recomendado de 0,00000101)
+

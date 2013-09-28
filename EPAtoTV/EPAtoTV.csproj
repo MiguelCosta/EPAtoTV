@@ -1,0 +1,691 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6C675B1D-2982-4730-B459-37BA2C6F3F8B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EPAtoTV</RootNamespace>
+    <AssemblyName>EPAtoTV</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Visual\Resources\icon\Windows8MetroUI\Windows-8-Metro-UI-ico.zip" />
+    <None Include="Visual\Resources\png\Windows8MetroUI\Windows-8-Metro-UI-png.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\" />
+    <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\A-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Access-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Acer-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Acrobat-Reader-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-After-Effects-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Audition-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Bridge-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Contribute-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Dreamweaver-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Encore-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Fireworks-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Flash-Builder-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Flash-Catalyst-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Flash-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Illustrator-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Indesign-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Lightroom-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Onlocation-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Photoshop-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Premiere-Pro-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Adobe-Soundbooth-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Aero-Winflip-3d-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Amazon-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Amazon-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Android-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Android-Smartphone-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Answers-In-Genesis-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Antivirus-Software-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\App-Store-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Apple-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Asus-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Audacity-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Avast-Antivirus-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\B-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Bejeweled-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Bing-Blue-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Bing-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Bittorrent-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Blank-Folder-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Bluetooth-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Bluetooth-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Bookmarks-Blue-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Bookmarks-Folder-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Bookmarks-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Bookmarks-Red-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\C-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Calculator-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Camstudio-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Camtasia-Studio-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Ccleaner-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Cd-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Cd-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Chrome-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Chrome-Web-Store-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Chromium-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Cnn-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Coding-App-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Command-Prompt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Compaq-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Compaq-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Computer-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Configure-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Configure-Tools-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Configure-Wrench-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Control-Panel-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\D-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Default-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Dell-Blue-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Dell-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Desktop-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Deviantart-Logo-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Deviantart-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Deviantart-Symbol-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Digg-Logo-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Digg-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Documents-Folder-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Documents-Library-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Documents-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Downloads-Folder-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Downloads-Library-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Downloads-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Dropbox-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\E-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Ebay-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Ebay-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Email-Chat-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Entourage-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Evernote-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Excel-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Explorer-Blue-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Explorer-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Expose-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\F-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Facebook-Alt-1-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Facebook-Alt-2-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Facebook-Alt-3-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Facebook-Blue-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Facebook-F-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Facebook-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Facetime-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Filezilla-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Finder-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Firefox-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Firefox-Orange-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Flickr-Dots-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Flickr-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Flickr-Pink-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Fox-News-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Frontpage-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\G-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Games-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Games-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Gateway-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Gimp-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Gmail-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google+-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google+-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Blogger-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Calendar-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Canary-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Canary-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Chrome-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Chromium-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Desktop-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Docs-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Earth-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-G-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Green-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Maps-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Music-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Orkut-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Picasa-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Places-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Reader-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Reader-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Tasks-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Translate-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Google-Voice-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\H-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Hp-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Hulu-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Hulu-Plus-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\I-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Ical-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Ichat-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Imovie-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Infopath-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Intel-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Internet-Explorer-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Internet-Explorer-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Ipad-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Iphone-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Ipod-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Itunes-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Itunes-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\J-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\K-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\L-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Lenovo-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Linked-In-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Linked-In-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Linux-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Live-Hotmail-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Live-Mail-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Live-Messenger-Blue-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Live-Messenger-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Live-Skydrive-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\M-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Media-Player-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Messaging-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Messenger-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Mic-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Micro-Sd-Card-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Microphone-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Microsoft-Blue-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Microsoft-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Microsoft-Store-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Monitor-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Ms-Office-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Music-Folder-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Music-Library-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Music-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\My-Apps-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\My-Video-Apps-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\My-Videos-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Myspace-Logo-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Myspace-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\N-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Netflix-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Network-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\New-York-Times-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Notepad-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\O-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Onenote-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Openoffice-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Opera-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Opera-Red-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Outlook-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\P-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Paint-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Paint-Net-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Pandora-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Pandora-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Pc-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Picasa-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Picasa-Purple-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Picture-Viewer-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Pictures-Folder-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Pictures-Library-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Pictures-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Pink-Flickr-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Play-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Powerpoint-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Project-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Publisher-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Q-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Quicktime-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\R-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Recycle-Bin-Empty-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Recycle-Bin-Full-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Rockmelt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Rss-Feed-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\S-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Safari-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Sd-Card-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Skype-Blue-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Skype-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Smart-Phone-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Spaces-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Spotify-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Srware-Iron-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Steam-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Steam-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Stumbleupon-Blue-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Stumbleupon-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\T-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Task-Manager-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\The-New-York-Times-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Thunderbird-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Tumblr-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Tumblr-T-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Tune-Up-Utilities-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Twitter-Alt-1-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Twitter-Alt-3-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Twitter-Alt-4-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Twitter-Bird-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Twitter-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\U-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Ubuntu-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Ubuntu-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Usb-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Usb-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\User-No-Frame-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\User-With-Frame-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Utorrent-Green-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Utorrent-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\V-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Videos-Folder-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Videos-Library-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Videos-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Vimeo-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Virtualbox-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Vlc-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Vmware-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\W-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Wikipedia-Globe-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Wikipedia-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Wikipedia-W-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Windows-Marketplace-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Windows-Media-Player-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Windows-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Windows-Phone-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Windows-Store-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Word-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Wordpress-Logo-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Wordpress-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\X-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Y-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Yahoo!-Alt-1-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Yahoo!-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Yahoo-Messenger-Alt-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Yahoo-Messenger-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Youtube-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Youtube-Red-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Z-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Zune-Metro.ico" />
+    <Resource Include="Visual\Resources\icon\Windows8MetroUI\Zune-Orange-Metro.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\A-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Access-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Acer-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Acrobat-Reader-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-After-Effects-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Audition-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Bridge-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Contribute-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Dreamweaver-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Encore-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Fireworks-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Flash-Builder-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Flash-Catalyst-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Flash-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Illustrator-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Indesign-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Lightroom-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Onlocation-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Photoshop-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Premiere-Pro-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Adobe-Soundbooth-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Aero-Winflip-3d-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Amazon-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Amazon-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Android-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Android-Smartphone-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Answers-In-Genesis-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Antivirus-Software-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\App-Store-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Apple-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Asus-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Audacity-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Avast-Antivirus-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\B-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Bejeweled-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Bing-Blue-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Bing-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Bittorrent-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Blank-Folder-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Bluetooth-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Bluetooth-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Bookmarks-Blue-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Bookmarks-Folder-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Bookmarks-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Bookmarks-Red-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\C-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Calculator-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Camstudio-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Camtasia-Studio-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Ccleaner-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Cd-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Cd-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Chrome-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Chrome-Web-Store-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Chromium-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Cnn-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Coding-App-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Command-Prompt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Compaq-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Compaq-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Computer-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Configure-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Configure-Tools-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Configure-Wrench-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Control-Panel-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\D-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Default-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Dell-Blue-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Dell-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Desktop-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Deviantart-Logo-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Deviantart-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Deviantart-Symbol-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Digg-Logo-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Digg-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Documents-Folder-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Documents-Library-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Documents-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Downloads-Folder-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Downloads-Library-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Downloads-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Dropbox-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\E-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Ebay-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Ebay-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Email-Chat-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Entourage-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Evernote-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Excel-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Explorer-Blue-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Explorer-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Expose-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\F-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Facebook-Alt-1-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Facebook-Alt-2-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Facebook-Alt-3-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Facebook-Blue-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Facebook-F-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Facebook-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Facetime-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Filezilla-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Finder-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Firefox-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Firefox-Orange-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Flickr-Dots-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Flickr-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Flickr-Pink-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Fox-News-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Frontpage-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\G-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Games-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Games-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Gateway-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Gimp-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Gmail-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google+-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google+-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Blogger-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Calendar-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Canary-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Canary-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Chrome-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Chromium-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Desktop-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Docs-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Earth-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-G-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Green-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Maps-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Music-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Orkut-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Picasa-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Places-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Reader-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Reader-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Tasks-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Translate-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Google-Voice-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\H-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Hp-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Hulu-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Hulu-Plus-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\I-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Ical-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Ichat-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Imovie-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Infopath-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Intel-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Internet-Explorer-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Internet-Explorer-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Ipad-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Iphone-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Ipod-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Itunes-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Itunes-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\J-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\K-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\L-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Lenovo-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Linked-In-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Linked-In-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Linux-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Live-Hotmail-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Live-Mail-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Live-Messenger-Blue-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Live-Messenger-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Live-Skydrive-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\M-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Media-Player-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Messaging-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Messenger-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Mic-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Micro-Sd-Card-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Microphone-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Microsoft-Blue-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Microsoft-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Microsoft-Store-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Monitor-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Ms-Office-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Music-Folder-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Music-Library-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Music-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\My-Apps-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\My-Video-Apps-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\My-Videos-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Myspace-Logo-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Myspace-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\N-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Netflix-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Network-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\New-York-Times-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Notepad-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\O-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Onenote-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Openoffice-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Opera-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Opera-Red-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Outlook-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\P-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Paint-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Paint-Net-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Pandora-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Pandora-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Pc-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Picasa-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Picasa-Purple-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Picture-Viewer-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Pictures-Folder-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Pictures-Library-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Pictures-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Pink-Flickr-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Play-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Powerpoint-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Project-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Publisher-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Q-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Quicktime-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\R-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Recycle-Bin-Empty-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Recycle-Bin-Full-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Rockmelt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Rss-Feed-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\S-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Safari-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Sd-Card-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Skype-Blue-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Skype-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Smart-Phone-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Spaces-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Spotify-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Srware-Iron-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Steam-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Steam-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Stumbleupon-Blue-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Stumbleupon-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\T-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Task-Manager-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\The-New-York-Times-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Thunderbird-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Tumblr-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Tumblr-T-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Tune-Up-Utilities-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Twitter-Alt-1-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Twitter-Alt-3-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Twitter-Alt-4-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Twitter-Bird-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Twitter-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\U-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Ubuntu-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Ubuntu-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Usb-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Usb-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\User-No-Frame-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\User-With-Frame-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Utorrent-Green-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Utorrent-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\V-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Videos-Folder-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Videos-Library-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Videos-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Vimeo-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Virtualbox-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Vlc-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Vmware-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\W-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Wikipedia-Globe-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Wikipedia-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Wikipedia-W-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Windows-Marketplace-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Windows-Media-Player-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Windows-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Windows-Phone-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Windows-Store-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Word-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Wordpress-Logo-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Wordpress-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\X-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Xbox-360-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Y-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Yahoo!-Alt-1-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Yahoo!-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Yahoo-Messenger-Alt-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Yahoo-Messenger-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Youtube-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Youtube-Red-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Z-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Zune-Metro.PNG" />
+    <Resource Include="Visual\Resources\png\Windows8MetroUI\Zune-Orange-Metro.PNG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
