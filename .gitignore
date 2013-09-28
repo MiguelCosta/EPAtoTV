@@ -1,0 +1,6 @@
+*.suo
+
+/*.suo
+
+/EPAtoTV/bin
+/EPAtoTV/obj
