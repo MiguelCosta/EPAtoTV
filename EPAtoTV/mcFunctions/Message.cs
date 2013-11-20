@@ -13,12 +13,16 @@ namespace EPAtoTV.mcFunctions {
             msg.AppendLine("\n\nSource: " + ex.Source);
             msg.AppendLine("\n\nTrace: " + ex.StackTrace.ToString());
 
-            System.Windows.MessageBox.Show(msg.ToString(), 
-                                            "ERRO", 
-                                            System.Windows.MessageBoxButton.OK, 
+            System.Windows.MessageBox.Show(msg.ToString(),
+                                            "ERRO",
+                                            System.Windows.MessageBoxButton.OK,
                                             System.Windows.MessageBoxImage.Error);
         }
 
+
+        static public string InputMessageText(string title, string message, string defaultValue = "") {
+            return Microsoft.VisualBasic.Interaction.InputBox(message, title, defaultValue);
+        }
 
     }
 }

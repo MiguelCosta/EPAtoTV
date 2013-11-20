@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace EPAtoTV.Model {
     public class NodeTableLine {
@@ -16,8 +17,23 @@ namespace EPAtoTV.Model {
         }
 
         public string ID { get; set; }
+        public int IDNumber {
+            get {
+                return int.Parse(Regex.Match(this.ID, @"\d+").Value);
+            }
+        }
         public string StartNode { get; set; }
+        public int StartNodeNumber {
+            get {
+                return int.Parse(Regex.Match(this.StartNode, @"\d+").Value);
+            }
+        }
         public string EndNode { get; set; }
+        public int EndNodeNumber {
+            get {
+                return int.Parse(Regex.Match(this.EndNode, @"\d+").Value);
+            }
+        }
         public double Length { get; set; }
         public double Diameter { get; set; }
 

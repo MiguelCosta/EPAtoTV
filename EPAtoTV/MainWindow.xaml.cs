@@ -17,7 +17,7 @@ namespace EPAtoTV {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow :Window {
+    public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
 
@@ -57,12 +57,12 @@ namespace EPAtoTV {
 
         private void btnReadFile_Click(object sender, RoutedEventArgs e) {
             Model.ContentFile file;
-            
+
             try {
                 Controller.Info.LogAdd("Read file begin");
                 file = Controller.ReadFile.Execute();
 
-                dgrNodeTable.ItemsSource = file.NodeTable.Lines;
+                dgrNodeTable.ItemsSource = file.FinalResult.Lines;
 
             } catch(Exception ex) {
                 mcFunctions.Message.ShowMessageError(ex);
@@ -72,6 +72,16 @@ namespace EPAtoTV {
         }
 
         #endregion
+
+        private void btnConfigIgnoreLines_Click(object sender, RoutedEventArgs e) {
+            string input = "";
+            try {
+                input = mcFunctions.Message.InputMessageText("Ignore lines", "texto", String.Join(",", Controller.Info.IgnoreLine.ToArray()));
+                Controller.Info.IgnoreLine = input.Split(',').ToList();
+            } catch(Exception ex) {
+                mcFunctions.Message.ShowMessageError(ex);
+            }
+        }
 
 
 

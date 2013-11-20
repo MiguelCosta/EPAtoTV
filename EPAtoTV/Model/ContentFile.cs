@@ -8,6 +8,8 @@ namespace EPAtoTV.Model {
     public class ContentFile {
 
         public NodeTable NodeTable { get; set; }
+        public LinkResult LinkResults { get; set; }
+        public FinalResult FinalResult { get; set; }
 
     }
 }

@@ -9,12 +9,16 @@ namespace EPAtoTV.Controller {
 
         private enum ReadStep {
             None,
-            NodeTableRead
+            NodeTableRead,
+            LinkResultsRead
         }
         static private ReadStep step = ReadStep.None;
 
         static private string rgNodeTableRead       = @"\s+Link - Node Table:";
         static private string rgNodeTableReadLine   = @"\s+(?<ID>[a-zA-Z0-9\-]+)\s+(?<StartNode>[a-zA-Z0-9]+)\s+(?<EndNode>[a-zA-Z0-9]+)\s+(?<Length>[0-9\.]+)\s+(?<Diameter>[0-9]+)";
+
+        static private string rgLinkResults         = @"\s+Link Results:";
+        static private string rgLinkResultsLine     = @"\s+(?<ID>[a-zA-Z0-9\-]+)\s+(?<Flow>[0-9\.]+)\s+(?<VelocityUnit>[0-9\.]+)\s+(?<Headloss>[0-9\.]+)\s+(?<Status>[a-zA-Z0-9\-]+)";
 
         static private Model.ContentFile fileResult;
 
@@ -30,6 +34,8 @@ namespace EPAtoTV.Controller {
                 lineNumber++;
             }
 
+            fileResult.FinalResult = new Model.FinalResult(fileResult.NodeTable, fileResult.LinkResults);
+
             return fileResult;
         }
 
@@ -43,15 +49,28 @@ namespace EPAtoTV.Controller {
                     }
                     break;
                 case ReadStep.NodeTableRead:
-                    if(System.Text.RegularExpressions.Regex.IsMatch(s, rgNodeTableReadLine)){
+                    if(System.Text.RegularExpressions.Regex.IsMatch(s, rgLinkResults)) {
+                        Controller.Info.LogAdd("Link Results found in L" + lineNumber + ": " + s);
+                        fileResult.LinkResults = new Model.LinkResult();
+                        step = ReadStep.LinkResultsRead;
+                    }
+                    if(System.Text.RegularExpressions.Regex.IsMatch(s, rgNodeTableReadLine) && Controller.Info.IsIgnoreLine(s) == false) {
                         Controller.Info.LogAdd("Node Table Read Line found in L" + lineNumber + ": " + s);
                         fileResult.NodeTable.AddLine(System.Text.RegularExpressions.Regex.Match(s, rgNodeTableReadLine));
                     }
                     break;
+                case ReadStep.LinkResultsRead:
+                    if(System.Text.RegularExpressions.Regex.IsMatch(s, rgLinkResultsLine) && Controller.Info.IsIgnoreLine(s) == false) {
+                        Controller.Info.LogAdd("Link Result Read Line found in L" + lineNumber + ": " + s);
+                        fileResult.LinkResults.AddLine(System.Text.RegularExpressions.Regex.Match(s, rgLinkResultsLine));
+                    }
+                    break;
+
                 default:
                     break;
             }
         }
+
 
     }
 }

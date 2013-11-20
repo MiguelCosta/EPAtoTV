@@ -14,12 +14,17 @@
                     <ImageBrush ImageSource="Visual/Resources/png/Others/Folder.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnShowFile" Content="" ToolTip="Show File" VerticalAlignment="Stretch" Width="60                     " Click="btnShowFile_Click">
+            <Button x:Name="btnShowFile" Content="" ToolTip="Preview File" VerticalAlignment="Stretch" Width="60                     " Click="btnShowFile_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Visual/Resources/png/Others/Document.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnReadFile" Content="" ToolTip="Show File" VerticalAlignment="Stretch" Width="60                     " Click="btnReadFile_Click">
+            <Button x:Name="btnReadFile" Content="" ToolTip="Process File" VerticalAlignment="Stretch" Width="60                     " Click="btnReadFile_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Visual/Resources/png/Others/Preview-256.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnConfigIgnoreLines" Content="" ToolTip="Configue Ignore Lines" VerticalAlignment="Stretch" Width="60" Click="btnConfigIgnoreLines_Click" >
                 <Button.Background>
                     <ImageBrush ImageSource="Visual/Resources/png/Others/Preview-256.png" Stretch="Uniform"/>
                 </Button.Background>

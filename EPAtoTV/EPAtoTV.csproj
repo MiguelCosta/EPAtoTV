@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Windows.Shell, Version=3.5.41019.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="ribboncontrolslibrary, Version=3.5.41019.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -59,6 +60,10 @@
     </ApplicationDefinition>
     <Compile Include="Controller\ReadFile.cs" />
     <Compile Include="Model\ContentFile.cs" />
+    <Compile Include="Model\FinalResult.cs" />
+    <Compile Include="Model\FinalResultLine.cs" />
+    <Compile Include="Model\LinkResultLine.cs" />
+    <Compile Include="Model\LinkResult.cs" />
     <Compile Include="Model\NodeTable.cs" />
     <Compile Include="Model\NodeTableLine.cs" />
     <Compile Include="Visual\winShowFile.xaml.cs">
