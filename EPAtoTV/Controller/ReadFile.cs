@@ -10,7 +10,8 @@ namespace EPAtoTV.Controller {
         private enum ReadStep {
             None,
             NodeTableRead,
-            LinkResultsRead
+            LinkResultsRead,
+            Pipes
         }
         static private ReadStep step = ReadStep.None;
 
@@ -19,6 +20,9 @@ namespace EPAtoTV.Controller {
 
         static private string rgLinkResults         = @"\s+Link Results:";
         static private string rgLinkResultsLine     = @"\s+(?<ID>[a-zA-Z0-9\-]+)\s+(?<Flow>[0-9\.]+)\s+(?<VelocityUnit>[0-9\.]+)\s+(?<Headloss>[0-9\.]+)\s+(?<Status>[a-zA-Z0-9\-]+)";
+
+        static private string rgPipes               = @"\s*\[PIPES";
+        static private string rgPipesLine           = @"^\s+(?<ID>[a-zA-Z0-9\-]+)\s+[a-zA-Z0-9\.]+\s+[a-zA-Z0-9\.]+\s+[0-9\.]+\s+[a-zA-Z0-9\-\.]+\s+(?<Roughness>[0-9\.]+)\s+[0-9]+\s+[a-zA-Z]+\s+;\s*[a-zA-Z\<\> ]+(?<NetPD>[0-9\.]+)";
 
         static private Model.ContentFile fileResult;
 
@@ -34,10 +38,19 @@ namespace EPAtoTV.Controller {
                 lineNumber++;
             }
 
-            fileResult.FinalResult = new Model.FinalResult(fileResult.NodeTable, fileResult.LinkResults);
+            lines = System.IO.File.ReadAllLines(Controller.Info.File2AnalyseAux.FullName).ToList();
+            lineNumber = 1;
+            fileResult.Pipes = new Model.Pipes();
+            foreach(string line in lines) {
+                ProcessLineAux(line, lineNumber);
+                lineNumber++;
+            }
+
+            fileResult.FinalResult = new Model.FinalResult(fileResult.NodeTable, fileResult.LinkResults, fileResult.Pipes);
 
             return fileResult;
         }
+
 
         static private void ProcessLine(string s, int lineNumber) {
             switch(step) {
@@ -68,6 +81,17 @@ namespace EPAtoTV.Controller {
 
                 default:
                     break;
+            }
+        }
+
+        static private void ProcessLineAux(string s, int lineNumber) {
+            if(System.Text.RegularExpressions.Regex.IsMatch(s, rgPipes)) {
+                step = ReadStep.Pipes;
+            }
+
+            if(step == ReadStep.Pipes && System.Text.RegularExpressions.Regex.IsMatch(s, rgPipesLine)) {
+                Controller.Info.LogAdd("Pipes Read Line found in L" + lineNumber + ": " + s);
+                fileResult.Pipes.AddLine(System.Text.RegularExpressions.Regex.Match(s, rgPipesLine));
             }
         }
 

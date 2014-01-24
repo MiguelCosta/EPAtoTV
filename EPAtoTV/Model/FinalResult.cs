@@ -9,24 +9,42 @@ namespace EPAtoTV.Model {
 
         private NodeTable _nodeTable;
         private LinkResult _linkResult;
-        public List<FinalResultLine> Lines;
+        private Pipes _pipesTable;
+        private List<FinalResultLine> _lines;
 
-        public FinalResult(NodeTable nodeTable, LinkResult linkResult) {
+        public List<FinalResultLine> Lines { get { return _lines; } set { _lines = value; } }
+
+        public FinalResult(NodeTable nodeTable, LinkResult linkResult, Pipes pipesTable) {
             _nodeTable = nodeTable;
             _linkResult = linkResult;
+            _pipesTable = pipesTable;
             ProcessTable();
         }
 
         private void ProcessTable() {
-            Lines = new List<FinalResultLine>();
+            _lines = new List<FinalResultLine>();
             NodeTableLine nTmp;
             LinkResultLine lTmp;
+            PipesLine pTmp;
 
             foreach(NodeTableLine lineNode in _nodeTable.Lines) {
                 nTmp = lineNode;
                 lTmp = _linkResult.Lines.First(l => l.IDNumber == lineNode.IDNumber);
-                Lines.Add(new FinalResultLine(nTmp, lTmp));
+                pTmp = _pipesTable.GetLines(lineNode.ID);
+                Lines.Add(new FinalResultLine(nTmp, lTmp, pTmp));
             }
+
+            _lines = _lines.OrderBy(x => x.NET_SUBRAA).ToList();
+        }
+
+        public string ToXML() {
+            string s = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n";
+            s += "<SHAPE xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n";
+            foreach(FinalResultLine line in Lines) {
+                s += line.ToXML();
+            }
+            s += "</SHAPE>";
+            return s;
         }
     }
 }

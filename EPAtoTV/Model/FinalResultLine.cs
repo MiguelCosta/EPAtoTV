@@ -11,21 +11,65 @@ namespace EPAtoTV.Model {
         private NodeTableLine _node;
         private LinkResultLine _link;
 
-        public FinalResultLine(NodeTableLine nodeTableLine, LinkResultLine linkResultLine) {
-            _node = nodeTableLine;
-            _link = linkResultLine;
+        private int _net_subraa;
+        private int _net_node_begin;
+        private int _net_node_end;
+
+        public FinalResultLine() {
         }
 
-        public int NET_SUBRAA { get { return _node.IDNumber; } }
-        public int NET_NODE_BEGIN { get { return _node.StartNodeNumber; } }
-        public int NET_NODE_END { get { return _node.EndNodeNumber; } }
-        public double NET_LENGTH { get { return _node.Length; } }
-        public double NET_Q { get { return _link.Flow; } }
-        public double NET_DCOM { get { return _node.Diameter + 10; } }
-        public double NET_DINT { get { return _node.Diameter; } }
+        public FinalResultLine(NodeTableLine nodeTableLine, LinkResultLine linkResultLine, PipesLine pipeLine) {
+            _node = nodeTableLine;
+            _link = linkResultLine;
+            _net_subraa = _node.IDNumber;
+            _net_node_begin = _node.StartNodeNumber > _node.EndNodeNumber ? _node.EndNodeNumber : _node.StartNodeNumber;
+            _net_node_end = _node.EndNodeNumber < _node.StartNodeNumber ? _node.StartNodeNumber : _node.EndNodeNumber;
+            if(pipeLine != null) {
+                this.NET_K = pipeLine.Roughness;
+                this.NET_P = pipeLine.Net_PD;
+            }
+        }
+
+        public int NET_SUBRAA { get { return _net_subraa; } set { _net_subraa = value; } }
+        public int NET_NODE_BEGIN {
+            get {
+                return _net_node_begin;
+            }
+            set {
+                _net_node_begin = value;
+            }
+        }
+        public int NET_NODE_END {
+            get {
+                return _net_node_end;
+            }
+            set {
+                _net_node_end = value;
+            }
+        }
+        public double NET_LENGTH { get { return _node == null ? 0 : _node.Length; } }
+        public double NET_Q { get { return _link == null ? 0 : _link.Flow; } }
+        public double NET_DCOM { get { return _node == null ? 0 : _node.Diameter + 10; } }
+        public double NET_DINT { get { return _node == null ? 0 : _node.Diameter; } }
         public double NET_K { get; set; }
         public double NET_P { get; set; }
-        public double NET_D { get { return 0.00000101; } }
+        public double NET_D { get { return _node == null ? 0 : 0.00000101; } }
+
+        public string ToXML() {
+            string s = "<LINK>\n";
+            s += "  <NET_SUBRAA>" + this.NET_SUBRAA + "</NET_SUBRAA>\n";
+            s += "  <NET_NODE_BEGIN>" + this.NET_NODE_BEGIN + "</NET_NODE_BEGIN>\n";
+            s += "  <NET_NODE_END>" + this.NET_NODE_END + "</NET_NODE_END>\n";
+            s += "  <NET_LENGTH>" + this.NET_LENGTH + "</NET_LENGTH>\n";
+            s += "  <NET_Q>" + this.NET_Q + "</NET_Q>\n";
+            s += "  <NET_DCOM>" + this.NET_DCOM + "</NET_DCOM>\n";
+            s += "  <NET_DINT>" + this.NET_DINT + "</NET_DINT>\n";
+            s += "  <NET_K>" + this.NET_K + "</NET_K>\n";
+            s += "  <NET_P>" + this.NET_P + "</NET_P>\n";
+            s += "  <NET_D>" + this.NET_D + "</NET_D>\n";
+            s += "</LINK>\n";
+            return s;
+        }
 
     }
 }

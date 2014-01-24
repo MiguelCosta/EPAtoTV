@@ -10,8 +10,8 @@ namespace EPAtoTV.mcFunctions {
         static public void ShowMessageError(Exception ex) {
             StringBuilder msg = new StringBuilder("");
             msg.AppendLine("Message: " + ex.Message);
-            msg.AppendLine("\n\nSource: " + ex.Source);
-            msg.AppendLine("\n\nTrace: " + ex.StackTrace.ToString());
+            //msg.AppendLine("\n\nSource: " + ex.Source);
+            //msg.AppendLine("\n\nTrace: " + ex.StackTrace.ToString());
 
             System.Windows.MessageBox.Show(msg.ToString(),
                                             "ERRO",

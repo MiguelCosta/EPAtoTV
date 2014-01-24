@@ -18,6 +18,9 @@ namespace EPAtoTV {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+
+        Model.ContentFile file;
+
         public MainWindow() {
             InitializeComponent();
 
@@ -33,9 +36,11 @@ namespace EPAtoTV {
 
         private void btnOpenFile_Click(object sender, RoutedEventArgs e) {
             try {
-                Controller.Info.File2Analyse = mcFunctions.File.OpenFileTxt();
-                if(Controller.Info.File2Analyse.Exists) {
+                Controller.Info.File2Analyse = mcFunctions.File.OpenFileTxt("Relatório de simulação");
+                Controller.Info.File2AnalyseAux = mcFunctions.File.OpenFileTxt("Ficheiro com NET_K e NET_P");
+                if(Controller.Info.File2Analyse.Exists && Controller.Info.File2AnalyseAux.Exists) {
                     Controller.Info.LogAdd("File: " + Controller.Info.File2Analyse.FullName);
+                    Controller.Info.LogAdd("File: " + Controller.Info.File2AnalyseAux.FullName);
                 } else {
                     Controller.Info.LogAdd("File not found");
                 }
@@ -56,7 +61,6 @@ namespace EPAtoTV {
         }
 
         private void btnReadFile_Click(object sender, RoutedEventArgs e) {
-            Model.ContentFile file;
 
             try {
                 Controller.Info.LogAdd("Read file begin");
@@ -76,16 +80,40 @@ namespace EPAtoTV {
         private void btnConfigIgnoreLines_Click(object sender, RoutedEventArgs e) {
             string input = "";
             try {
-                input = mcFunctions.Message.InputMessageText("Ignore lines", "texto", String.Join(",", Controller.Info.IgnoreLine.ToArray()));
+                input = mcFunctions.Message.InputMessageText("Ignore lines", "Ignorar pontos que comecem por:", String.Join(",", Controller.Info.IgnoreLine.ToArray()));
                 Controller.Info.IgnoreLine = input.Split(',').ToList();
             } catch(Exception ex) {
                 mcFunctions.Message.ShowMessageError(ex);
             }
         }
 
+        private void btnAddInitialPoint_Click(object sender, RoutedEventArgs e) {
+            string input = "";
+            List<int> points = new List<int>();
+            try {
+                
+                input = mcFunctions.Message.InputMessageText("Add initial point", "Indique a que pontos liga o reservatório separados por ';'(ponto e vírgula)");
+                points = input.Split(';').Select(x => int.Parse(x)).ToList();
 
+                foreach(int p in points) {
+                    file.AddReservatory(p);
+                }
 
+                dgrNodeTable.ItemsSource = null;
+                dgrNodeTable.ItemsSource = file.FinalResult.Lines;
 
+            } catch(Exception ex) {
+                mcFunctions.Message.ShowMessageError(ex);
+            }
+        }
+
+        private void btnExport_Click(object sender, RoutedEventArgs e) {
+            try {
+                mcFunctions.File.SaveFileXML(file.FinalResult.ToXML());
+            } catch(Exception ex) {
+                mcFunctions.Message.ShowMessageError(ex);
+            }
+        }
 
     }
 }

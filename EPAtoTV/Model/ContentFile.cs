@@ -9,7 +9,16 @@ namespace EPAtoTV.Model {
 
         public NodeTable NodeTable { get; set; }
         public LinkResult LinkResults { get; set; }
+        public Pipes Pipes { get; set; }
         public FinalResult FinalResult { get; set; }
+
+        public void AddReservatory(int point) {
+            FinalResultLine line = new FinalResultLine( );
+            line.NET_SUBRAA = 0;
+            line.NET_NODE_BEGIN = point;
+            line.NET_NODE_END = point;
+            FinalResult.Lines.Add(line);
+        }
 
     }
 }

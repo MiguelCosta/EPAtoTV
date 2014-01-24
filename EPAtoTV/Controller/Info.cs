@@ -12,6 +12,11 @@ namespace EPAtoTV.Controller {
         /// </summary>
         static public System.IO.FileInfo File2Analyse = null;
 
+        /// <summary>
+        /// Ficheiro que irá servir de input auxiliar para a análise
+        /// </summary>
+        static public System.IO.FileInfo File2AnalyseAux = null;
+
         #region Log
 
         public delegate void LogEventHandler();
