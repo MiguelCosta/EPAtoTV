@@ -28,10 +28,14 @@ namespace EPAtoTV.Model {
             PipesLine pTmp;
 
             foreach(NodeTableLine lineNode in _nodeTable.Lines) {
-                nTmp = lineNode;
-                lTmp = _linkResult.Lines.First(l => l.IDNumber == lineNode.IDNumber);
-                pTmp = _pipesTable.GetLines(lineNode.ID);
-                Lines.Add(new FinalResultLine(nTmp, lTmp, pTmp));
+                try {
+                    nTmp = lineNode;
+                    lTmp = _linkResult.Lines.First(l => l.IDNumber == lineNode.IDNumber);
+                    pTmp = _pipesTable.GetLines(lineNode.ID);
+                    Lines.Add(new FinalResultLine(nTmp, lTmp, pTmp));
+                } catch(Exception) {
+                    throw;
+                }
             }
 
             _lines = _lines.OrderBy(x => x.NET_SUBRAA).ToList();

@@ -60,13 +60,13 @@ namespace EPAtoTV.Model {
             s += "  <NET_SUBRAA>" + this.NET_SUBRAA + "</NET_SUBRAA>\n";
             s += "  <NET_NODE_BEGIN>" + this.NET_NODE_BEGIN + "</NET_NODE_BEGIN>\n";
             s += "  <NET_NODE_END>" + this.NET_NODE_END + "</NET_NODE_END>\n";
-            s += "  <NET_LENGTH>" + this.NET_LENGTH + "</NET_LENGTH>\n";
-            s += "  <NET_Q>" + this.NET_Q + "</NET_Q>\n";
-            s += "  <NET_DCOM>" + this.NET_DCOM + "</NET_DCOM>\n";
-            s += "  <NET_DINT>" + this.NET_DINT + "</NET_DINT>\n";
-            s += "  <NET_K>" + this.NET_K + "</NET_K>\n";
-            s += "  <NET_P>" + this.NET_P + "</NET_P>\n";
-            s += "  <NET_D>" + this.NET_D + "</NET_D>\n";
+            s += "  <NET_LENGTH>" + mcFunctions.Format.Dbl2Str_ENG(this.NET_LENGTH) + "</NET_LENGTH>\n";
+            s += "  <NET_Q>" + mcFunctions.Format.Dbl2Str_ENG(this.NET_Q) + "</NET_Q>\n";
+            s += "  <NET_DCOM>" + mcFunctions.Format.Dbl2Str_ENG(this.NET_DCOM) + "</NET_DCOM>\n";
+            s += "  <NET_DINT>" + mcFunctions.Format.Dbl2Str_ENG(this.NET_DINT) + "</NET_DINT>\n";
+            s += "  <NET_K>" + mcFunctions.Format.Dbl2Str_ENG(this.NET_K) + "</NET_K>\n";
+            s += "  <NET_P>" + mcFunctions.Format.Dbl2Str_ENG(this.NET_P) + "</NET_P>\n";
+            s += "  <NET_D>" + mcFunctions.Format.Dbl2Str_ENG(this.NET_D) + "</NET_D>\n";
             s += "</LINK>\n";
             return s;
         }

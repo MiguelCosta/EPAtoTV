@@ -16,13 +16,13 @@ namespace EPAtoTV.Controller {
         static private ReadStep step = ReadStep.None;
 
         static private string rgNodeTableRead       = @"\s+Link - Node Table:";
-        static private string rgNodeTableReadLine   = @"\s+(?<ID>[a-zA-Z0-9\-]+)\s+(?<StartNode>[a-zA-Z0-9]+)\s+(?<EndNode>[a-zA-Z0-9]+)\s+(?<Length>[0-9\.]+)\s+(?<Diameter>[0-9]+)";
+        static private string rgNodeTableReadLine   = @"\s+(?<ID>[a-zA-Z0-9\-]+)\s+(?<StartNode>[a-zA-Z0-9']+)\s+(?<EndNode>[a-zA-Z0-9']+)\s+(?<Length>[0-9\.]+)\s+(?<Diameter>[0-9]+)";
 
         static private string rgLinkResults         = @"\s+Link Results:";
         static private string rgLinkResultsLine     = @"\s+(?<ID>[a-zA-Z0-9\-]+)\s+(?<Flow>[0-9\.]+)\s+(?<VelocityUnit>[0-9\.]+)\s+(?<Headloss>[0-9\.]+)\s+(?<Status>[a-zA-Z0-9\-]+)";
 
         static private string rgPipes               = @"\s*\[PIPES";
-        static private string rgPipesLine           = @"^\s+(?<ID>[a-zA-Z0-9\-]+)\s+[a-zA-Z0-9\.]+\s+[a-zA-Z0-9\.]+\s+[0-9\.]+\s+[a-zA-Z0-9\-\.]+\s+(?<Roughness>[0-9\.]+)\s+[0-9]+\s+[a-zA-Z]+\s+;\s*[a-zA-Z\<\> ]+(?<NetPD>[0-9\.]+)";
+        static private string rgPipesLine           = @"^\s+(?<ID>[a-zA-Z0-9\-]+)\s+[a-zA-Z0-9'\.]+\s+[a-zA-Z0-9'\.]+\s+[0-9\.]+\s+[a-zA-Z0-9\-\.]+\s+(?<Roughness>[0-9\.]+)\s+[0-9]+\s+[a-zA-Z]+\s+;\s*[a-zA-Z\<\> ]*(?<NetPD>[0-9\.]+)";
 
         static private Model.ContentFile fileResult;
 

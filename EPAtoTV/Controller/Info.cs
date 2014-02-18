@@ -34,7 +34,7 @@ namespace EPAtoTV.Controller {
         /// <summary>
         /// Array que contêm as palavras que é para igonrar caso os nodos contenham
         /// </summary>
-        static public List<string> IgnoreLine = new List<string>() { "vs" };
+        static public List<string> IgnoreLine = new List<string>() { "vs", "vt" };
 
         /// <summary>
         /// Indica se é uma linha que é para ignorar ou não
