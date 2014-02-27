@@ -63,6 +63,11 @@ namespace EPAtoTV {
         private void btnReadFile_Click(object sender, RoutedEventArgs e) {
 
             try {
+
+                string input = "";
+                input = mcFunctions.Message.InputMessageText("Simbologia da tubagem", "Insira separado por ponto e vírgula os perfixos da identificação das tubagens:", String.Join(",", Controller.Info.AcceptLine.ToArray()));
+                Controller.Info.AcceptLine = input.Split(',').ToList();
+
                 Controller.Info.LogAdd("Read file begin");
                 file = Controller.ReadFile.Execute();
 
@@ -77,21 +82,11 @@ namespace EPAtoTV {
 
         #endregion
 
-        private void btnConfigIgnoreLines_Click(object sender, RoutedEventArgs e) {
-            string input = "";
-            try {
-                input = mcFunctions.Message.InputMessageText("Ignore lines", "Ignorar pontos que comecem por:", String.Join(",", Controller.Info.IgnoreLine.ToArray()));
-                Controller.Info.IgnoreLine = input.Split(',').ToList();
-            } catch(Exception ex) {
-                mcFunctions.Message.ShowMessageError(ex);
-            }
-        }
-
         private void btnAddInitialPoint_Click(object sender, RoutedEventArgs e) {
             string input = "";
             List<int> points = new List<int>();
             try {
-                
+
                 input = mcFunctions.Message.InputMessageText("Add initial point", "Indique a que pontos liga o reservatório separados por ';'(ponto e vírgula)");
                 points = input.Split(';').Select(x => int.Parse(x)).ToList();
 

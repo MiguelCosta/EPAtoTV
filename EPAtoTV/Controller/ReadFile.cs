@@ -19,7 +19,7 @@ namespace EPAtoTV.Controller {
         static private string rgNodeTableReadLine   = @"\s+(?<ID>[a-zA-Z0-9\-]+)\s+(?<StartNode>[a-zA-Z0-9']+)\s+(?<EndNode>[a-zA-Z0-9']+)\s+(?<Length>[0-9\.]+)\s+(?<Diameter>[0-9]+)";
 
         static private string rgLinkResults         = @"\s+Link Results:";
-        static private string rgLinkResultsLine     = @"\s+(?<ID>[a-zA-Z0-9\-]+)\s+(?<Flow>[0-9\.]+)\s+(?<VelocityUnit>[0-9\.]+)\s+(?<Headloss>[0-9\.]+)\s+(?<Status>[a-zA-Z0-9\-]+)";
+        static private string rgLinkResultsLine     = @"\s+(?<ID>[a-zA-Z0-9\-]+)\s+(?<Flow>[0-9\.\-]+)\s+(?<VelocityUnit>[0-9\.]+)\s+(?<Headloss>[0-9\.]+)\s+(?<Status>[a-zA-Z0-9\-]+)";
 
         static private string rgPipes               = @"\s*\[PIPES";
         static private string rgPipesLine           = @"^\s+(?<ID>[a-zA-Z0-9\-]+)\s+[a-zA-Z0-9'\.]+\s+[a-zA-Z0-9'\.]+\s+[0-9\.]+\s+[a-zA-Z0-9\-\.]+\s+(?<Roughness>[0-9\.]+)\s+[0-9]+\s+[a-zA-Z]+\s+;\s*[a-zA-Z\<\> ]*(?<NetPD>[0-9\.]+)";
@@ -42,6 +42,9 @@ namespace EPAtoTV.Controller {
             lineNumber = 1;
             fileResult.Pipes = new Model.Pipes();
             foreach(string line in lines) {
+                if(line.Contains("p13")) {
+                    Console.WriteLine(line);
+                }
                 ProcessLineAux(line, lineNumber);
                 lineNumber++;
             }

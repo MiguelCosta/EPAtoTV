@@ -26,5 +26,9 @@ namespace EPAtoTV.Model {
         public double VelocityUnit { get; set; }
         public double Headloss { get; set; }
         public string Status { get; set; }
+
+        public override string ToString() {
+            return ID;
+        }
     }
 }
