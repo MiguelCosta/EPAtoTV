@@ -24,7 +24,7 @@ namespace EPAtoTV.Model {
             _net_subraa = _node.IDNumber;
             _net_node_begin = _node.StartNodeNumber > _node.EndNodeNumber ? _node.EndNodeNumber : _node.StartNodeNumber;
             _net_node_end = _node.EndNodeNumber < _node.StartNodeNumber ? _node.StartNodeNumber : _node.EndNodeNumber;
-            if(pipeLine != null) {
+            if (pipeLine != null) {
                 this.NET_K = pipeLine.Roughness;
                 this.NET_P = pipeLine.Net_PD;
             }
@@ -48,7 +48,11 @@ namespace EPAtoTV.Model {
             }
         }
         public double NET_LENGTH { get { return _node == null ? 0 : _node.Length; } }
-        public double NET_Q { get { return _link == null ? 0 : _link.Flow; } }
+        public double NET_Q {
+            get {
+                return _link == null ? 0 : Math.Abs(_link.Flow);
+            }
+        }
         public double NET_DCOM { get { return _node == null ? 0 : _node.Diameter + 10; } }
         public double NET_DINT { get { return _node == null ? 0 : _node.Diameter; } }
         public double NET_K { get; set; }
