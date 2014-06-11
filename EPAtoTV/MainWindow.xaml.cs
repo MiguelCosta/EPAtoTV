@@ -38,24 +38,25 @@ namespace EPAtoTV {
             try {
                 Controller.Info.File2Analyse = mcFunctions.File.OpenFileTxt("Relatório de simulação");
                 Controller.Info.File2AnalyseAux = mcFunctions.File.OpenFileTxt("Ficheiro com NET_K e NET_P");
-                if(Controller.Info.File2Analyse.Exists && Controller.Info.File2AnalyseAux.Exists) {
+                if (Controller.Info.File2Analyse.Exists && Controller.Info.File2AnalyseAux.Exists) {
                     Controller.Info.LogAdd("File: " + Controller.Info.File2Analyse.FullName);
                     Controller.Info.LogAdd("File: " + Controller.Info.File2AnalyseAux.FullName);
-                } else {
+                }
+                else {
                     Controller.Info.LogAdd("File not found");
                 }
-            } catch(Exception ex) {
+            } catch (Exception ex) {
                 mcFunctions.Message.ShowMessageError(ex);
             }
         }
 
         private void btnShowFile_Click(object sender, RoutedEventArgs e) {
             try {
-                if(Controller.Info.File2Analyse.Exists) {
+                if (Controller.Info.File2Analyse.Exists) {
                     Visual.winShowfile f = new Visual.winShowfile();
                     f.ShowDialog();
                 }
-            } catch(Exception ex) {
+            } catch (Exception ex) {
                 mcFunctions.Message.ShowMessageError(ex);
             }
         }
@@ -65,7 +66,9 @@ namespace EPAtoTV {
             try {
 
                 string input = "";
-                input = mcFunctions.Message.InputMessageText("Simbologia da tubagem", "Insira separado por ponto e vírgula os perfixos da identificação das tubagens:", String.Join(",", Controller.Info.AcceptLine.ToArray()));
+                input = mcFunctions.Message.InputMessageText("Simbologia da tubagem",
+                    "Prefixo da designação das tubagens no Modelo de Simulação Hidráulico",
+                    String.Join(",", Controller.Info.AcceptLine.ToArray()));
                 Controller.Info.AcceptLine = input.Split(',').ToList();
 
                 Controller.Info.LogAdd("Read file begin");
@@ -73,7 +76,7 @@ namespace EPAtoTV {
 
                 dgrNodeTable.ItemsSource = file.FinalResult.Lines;
 
-            } catch(Exception ex) {
+            } catch (Exception ex) {
                 mcFunctions.Message.ShowMessageError(ex);
             } finally {
                 Controller.Info.LogAdd("Read file end");
@@ -87,17 +90,18 @@ namespace EPAtoTV {
             List<int> points = new List<int>();
             try {
 
-                input = mcFunctions.Message.InputMessageText("Add initial point", "Indique a que pontos liga o reservatório separados por ';'(ponto e vírgula)");
+                input = mcFunctions.Message.InputMessageText("Add initial point",
+                    "Indicar os pontos de ligação da(s) sub-RAA de Origem (reservatório(s)) à restante RAA, separados por ponto e vírgula ';'");
                 points = input.Split(';').Select(x => int.Parse(x)).ToList();
 
-                foreach(int p in points) {
+                foreach (int p in points) {
                     file.AddReservatory(p);
                 }
 
                 dgrNodeTable.ItemsSource = null;
                 dgrNodeTable.ItemsSource = file.FinalResult.Lines;
 
-            } catch(Exception ex) {
+            } catch (Exception ex) {
                 mcFunctions.Message.ShowMessageError(ex);
             }
         }
@@ -105,7 +109,7 @@ namespace EPAtoTV {
         private void btnExport_Click(object sender, RoutedEventArgs e) {
             try {
                 mcFunctions.File.SaveFileXML(file.FinalResult.ToXML());
-            } catch(Exception ex) {
+            } catch (Exception ex) {
                 mcFunctions.Message.ShowMessageError(ex);
             }
         }
